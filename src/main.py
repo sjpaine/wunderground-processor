@@ -1,10 +1,9 @@
- #!/usr/bin/python 
+ #!/usr/bin/python3 
 #import Pusher
 #import DataDog
 #import Wunderground API manager
 import config as cfg
 import APIKeys as keys
-import BeautifulSoup
 import urllib3
 import json
 
@@ -41,4 +40,7 @@ def parseJsonWunderground(s1):
 		print (key, s1['current_observation'][key])
 		statsd.gauge("weather."+key,s1['current_observation'][key])
 
-main()
+
+if __name__ == "__main__":
+	main()
+
