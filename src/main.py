@@ -3,6 +3,7 @@
 #import DataDog
 #import Wunderground API manager
 import config as cfg
+import APIKeys as keys
 import BeautifulSoup
 import urllib3
 import json
@@ -16,7 +17,7 @@ def main():
     if cfg.testResponse <> '':
     	Soutput = parseJsonWunderground(cfg.testResponse)
     else:
-		Surl = cfg.weather['url'] + cfg.weather['apiKey'] + cfg.weather['url2'] + cfg.weather['url3']
+		Surl = cfg.weather['url'] + keys.APIKeys['WundergroundKey'] + cfg.weather['url2'] + cfg.weather['url3']
 		http = urllib3.PoolManager()
 		print Surl
 		r = http.request('GET',Surl)
@@ -26,7 +27,7 @@ def main():
 
 def parseJsonWunderground(s1):
 #Fix up the json string to send to Datadog.
-	options = { 'api_key':'XX', 'app_key':'XX' }
+	options = { 'api_key':keys.APIKeys['DataDogMainKey'], 'app_key':keys.APIKeys['DataDogAppKey'] }
 	initialize(**options)
 
 	title = "Update from Wunderground" 
