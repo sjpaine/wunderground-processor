@@ -1,4 +1,7 @@
  #!/usr/bin/python3 
+#import Pusher
+#import DataDog
+#import Wunderground API manager
 import config as cfg
 import APIKeys as keys
 import urllib3
@@ -39,6 +42,7 @@ def parseJsonWunderground(s1):
 		if (is_number(str(s1['current_observation'][key]))):
 			tempDict['metric'] = "weather." + key
 			tempDict['points'] = float(s1['current_observation'][key])
+			tempDict['host'] = "IShankil2"
 			print(tempDict)
 			output.append(tempDict)
 			tempDict = {}
@@ -55,4 +59,3 @@ def is_number(s):
 
 if __name__ == "__main__":
 	main()
-
