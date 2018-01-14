@@ -1,0 +1,19 @@
+*Objects
+Wunderground API
+
+Mapping to DataDog
+
+Call to DataDog
+
+
+
+
+*Program Flow
+Setup vars
+Call Wunderground based on vars (x times)
+Map wunderground data to output (x times)
+Send data to Datadog
+
+
+
+
