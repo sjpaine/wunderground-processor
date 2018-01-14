@@ -43,7 +43,7 @@ def parseJsonWunderground(s1):
 			output.append(tempDict)
 			tempDict = {}
 	print(output)
-	api.Metric.send(output)
+	print(api.Metric.send(output))
 
 def is_number(s):
     try:
