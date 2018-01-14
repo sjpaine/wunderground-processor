@@ -26,7 +26,7 @@ def main():
 
 def parseJsonWunderground(s1):
 #Fix up the json string to send to Datadog.
-	options = { 'api_key':'227b3e60446aec4a62a48ef3a88e5510', 'app_key':'48bb55b1194e4e33a4fa7f3fe48e83f2cd40138a' }
+	options = { 'api_key':'XX', 'app_key':'XX' }
 	initialize(**options)
 
 	title = "Update from Wunderground" 

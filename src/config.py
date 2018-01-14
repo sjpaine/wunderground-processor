@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 
 weatherold = {'url': 'http://api.wunderground.com/api/',
-         'apiKey': '21b97b14647de2af',
+         'apiKey': 'XX',
          'url2': '/history_',
          'url3': '/history/q/pws:ISHANKIL2.json'}
 
 
 weather = {'url': 'http://api.wunderground.com/api/',
-         'apiKey': '21b97b14647de2af',
+         'apiKey': 'XX',
          'url2': '',
          'url3': '/conditions/q/pws:ISHANKIL2.json'}
 
