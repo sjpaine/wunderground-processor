@@ -1,7 +1,4 @@
  #!/usr/bin/python3 
-#import Pusher
-#import DataDog
-#import Wunderground API manager
 import config as cfg
 import APIKeys as keys
 import urllib3
@@ -35,11 +32,26 @@ def parseJsonWunderground(s1):
 	tags = ['version:1', 'application:Python']
 
 	api.Event.create(title=title, text=text, tags=tags)
-
+	
+	output = []
+	tempDict = {}
 	for key in s1['current_observation']:
-		print (key, s1['current_observation'][key])
-		statsd.gauge("weather."+key,s1['current_observation'][key])
+		if (is_number(str(s1['current_observation'][key]))):
+			tempDict['metric'] = "weather." + key
+			tempDict['points'] = float(s1['current_observation'][key])
+			print(tempDict)
+			output.append(tempDict)
+			tempDict = {}
+	print(output)
+	api.Metric.send(output)
 
+def is_number(s):
+    try:
+        complex(s) # for int, long, float and complex
+    except ValueError:
+        return False
+
+    return True
 
 if __name__ == "__main__":
 	main()
